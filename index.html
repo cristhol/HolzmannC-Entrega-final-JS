@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewComputers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./estilos.css">
+</head>
+<body>
+    
+    <header>
+        <div class="headerContainer">
+            <div class="logo">
+                <img src="./img/logo.png" alt="NewComputers">
+            </div>
+            <div class="searchBar">
+                <label for="">Buscar</label>
+                <input type="text">
+            </div>
+            <div id="userName" class="userInfo"></div>
+        </div>
+    </header>
+
+    <div class="banner">
+        <img src="./img/Banner4.png" alt="NewComputers">
+    </div>
+
+    <div class="container">
+        <section class="row catalogo">
+            <h3>Nuestro catálogo</h3>
+            <div id="todasCards">
+            </div>
+        </section>
+    </div>
+
+    <div id="bienvenida" class="modal">
+        <div class="modalContent">
+            <img src="./img/banner2.jfif" alt="banner">
+            <h3>Bienvenido a <span>NewComputers</span></h3>
+            <h3>Ingrese su usario</h3>
+            <input id="nombreUsuario" type="text">
+            <button id="ingresoUsuario">Aceptar</button>
+        </div>
+    </div>
+
+    <div id="modalInfoProductos" class="modalInfo"></div>
+
+<script src="./app.js"></script>
+
+</body>
+</html>

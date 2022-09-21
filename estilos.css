@@ -1,0 +1,270 @@
+/*ESTILOS GENERALES*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    color: #fff;
+}
+
+img {
+    width: 100%;
+    object-fit: contain;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.3rem;
+}
+
+a {
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background: #136a8a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    
+}
+
+/* MENSAJE DE BIENVENIDA */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #267871;
+}
+
+.modalContent {
+    margin: 5% auto;
+    background-color: #136a8a;
+    width: 50%;
+    padding: 50px;
+    border: 1px solid #267871;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.modalContent h3 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.modalContent span {
+    color: black;
+    font-weight: 700;
+}
+
+.modalContent input {
+    height: 32px;
+    border-radius: 5px;
+    width: 350px;
+    padding-left: 8px;
+}
+.modalContent button {
+    height: 32px;
+    border-radius: 5px;
+    width: 150px;
+    cursor: pointer;
+}
+
+
+/* HEADER */
+
+.headerContainer {
+    display: flex;  
+    justify-content: space-between;
+    background-color: #136a8a;
+    width: 100%;
+    height: 70px;
+    padding: 0 4%;
+    position: fixed
+}
+
+.logo {
+    display: flex;
+}
+
+.logo h1 {
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
+    font-size: 4.5rem;
+}
+
+
+.logo img {
+    width: 120px;
+    padding-left: 8px;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+.searchBar label {
+    font-family: 'Montserrat', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+.searchBar input {
+    height: 28px;
+    width: 250px;
+    border-radius: 5px;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.userInfo span {
+    color: black;
+}
+
+.userInfo h2 {
+    font-size: 2rem;
+}
+
+.banner img {
+    object-fit: cover;
+    height: 450px;
+}
+
+/*SECTIONS*/
+
+section h3 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+
+
+
+section p {
+    line-height: 1.4;
+}
+
+.container {
+    padding: 30px 0;
+}
+
+.row {
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+#todasCards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 300px;
+    background-color: #136a8a;
+    overflow-x: hidden;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.cardInfo {
+    display: flex;
+}
+.cardText {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.cardActions {
+    display: flex;
+    flex-direction: column;
+    margin: auto ;
+    padding: 10px;
+}
+.cardActions a {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color: #F9CE69;
+    line-height: 1.2;
+}
+
+.cardActions a img {
+    width: 45px;
+    background-color: #136a8a;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+/* MODAL DE INFORMACIÓN DE PRODUCTOS */
+
+.modalInfo {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+
+.modalInfoContent {
+    margin: 15% auto;
+    background-color: #267871;
+    border: 5px solid #136a8a;
+    width: 60%;
+    padding: 30px;
+    display: flex;
+    overflow: hidden;
+}
+
+.modalInfoContent img {
+    width: 100%;
+    padding-right: 30px;
+}
+
+.modalInfoContent h3 {
+    font-size: 2.5rem;
+    color: #F9CE69;
+    margin-bottom: 20px;
+}
+
+.modalInfoContent p {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.modalInfoContent .botonCerrar {
+    padding: 1rem 2rem;
+    background-color: #F9CE69;
+    color: #136a8a;
+    border: 1px solid #136a8a;
+    cursor: pointer;
+}
