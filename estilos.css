@@ -151,6 +151,26 @@ body {
     height: 450px;
 }
 
+.carrito {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: #F9CE69;
+}
+.carrito img {
+    width: 35px;
+    cursor: pointer;
+}
+
+.carrito p {
+    padding: 5px;
+    background-color: #9BBBFC;
+    color: red;
+    border-radius: 50%;
+}
+
 /*SECTIONS*/
 
 section h3 {
@@ -261,10 +281,82 @@ section p {
     flex-wrap: wrap;
 }
 
-.modalInfoContent .botonCerrar {
+.modalInfoContent .botonModal {
     padding: 1rem 2rem;
     background-color: #F9CE69;
     color: #136a8a;
     border: 1px solid #136a8a;
     cursor: pointer;
+}
+
+/*MODAL DEL CARRITO*/
+
+#modalCart {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8); 
+    overflow-y: scroll;
+}
+
+.modalCarritoContent {
+    margin: 5% auto;
+    background-color: #9bbbfce5;
+    border: 5px solid #136a8a;
+    width: 30%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modalCarritoContent h3 {
+    font-size: 3rem;
+    color: #F9CE69;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.descripcionProducto {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 30px;
+
+}
+.modalCarritoContent img {
+    width: 23%;
+    padding-right: 20px;
+}
+
+.modalCarritoContent p {
+    font-size: 2rem;
+    padding-right: 30px;
+}
+
+.modalCarritoContent button {
+    padding: 10px;
+    background-color: #F9CE69;
+    border-color: #136a8a;
+    cursor: pointer;
+}
+
+.montoTotal {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.montoTotal h4 {
+    font-size: 2.5rem;
+    color: #F9CE69;
+}
+
+.accionesCarrito {
+    display: flex;
+    justify-content: space-around;
 }
