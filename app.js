@@ -28,14 +28,13 @@ localStorage.setItem("CatalogoCompleto", todosLosProductosStr);
 //Se declaran variables
 
 let usuario;
-let carrito = [];
+let carrito = JSON.parse (localStorage.getItem('PeliculasEnCarrito')) || [];
 const body = document.querySelector("body");
 const botonCarrito = document.querySelector("#botonCarrito");
 botonCarrito.addEventListener("click", () => {
-    if (carrito.length != 0) {
-        abrirCarrito()
-    }
-})
+    carrito.length != 0 &&  abrirCarrito();
+    })
+
 
 
 //Se declaran funciones
@@ -58,21 +57,19 @@ function ingresarUsuario() {
         nombre = e.target.value;
     });
     let ingreso = document.querySelector("#ingresoUsuario");
-    ingreso.addEventListener("click", () => {
+    ingreso.onclick = () => {
         campo.value = ""
-        pantallaIngreso.style.display = "none";
-        if (nombre != undefined) {
-            validarUsuario(nombre);
-        } else {
-            nombre = "usuario";
-            validarUsuario(nombre);
-        }
-    })
-}
+        cerrarModal(pantallaIngreso);
+        nombre != undefined ? nombre : nombre = "usuario";
+        validarUsuario(nombre);
+    }
+    }
+    
 
-function setButton(inBtn, addedClass, container, action, reference) {
+function setButton(inBtn, addedClass, newId, container, action, reference) {
     let btn = document.createElement("button");
     btn.classList.add(addedClass);
+    btn.id = newId;
     btn.innerHTML += inBtn;
     container.appendChild(btn);
     btn.addEventListener("click", () => {
@@ -114,39 +111,43 @@ function mostrarProductos() {
 
 function mostrarInfo(array, indice) {
     const item = array[indice];
+    let {nombre, marca, modelo, descripcion, precio, foto} = item;
     let modalInfo = document.querySelector("#modalInfoProductos");
     let itemInfo = document.createElement("div");
     itemInfo.classList.add("modalInfoContent");
     modalInfo.innerHTML = "";
     itemInfo.innerHTML = `<div class="divImagen">
-    <img src="./img/${item.foto}.webp" alt="foto producto">
+    <img src="./img/${foto}.webp" alt="foto">
     </div>
     <div>
         <div>
-            <h3>${item.nombre}</h3>
-            <p>Marca: ${item.marca}</p>
-            <p>Modelo: ${item.modelo}</p>
-            <p>Descripcion: ${item.descripcion}</p>
-            <p>Adquirila por $ ${item.precio}</p>
+            <h3>${nombre}</h3>
+            <p>Marca: ${marca}</p>
+            <p>Modelo: ${modelo}</p>
+            <p>Descripcion: ${descripcion}</p>
+            <p>Adquirila por $ ${precio}</p>
         </div>
     </div>`
     modalInfo.appendChild(itemInfo);
 
+    let productoEncontradoCarrito = carrito.findIndex((elemento) => {
+        return elemento.nombre === item.nombre
+    });
     let btnCartText;
-    if (carrito.includes(item)) {
-        btnCartText = "Quitar del carrito"
-    } else {
-        btnCartText = "Agregar al carrito"
-    }
+    productoEncontradoCarrito === -1 ? btnCartText = "Agregar al carrito" : btnCartText = "Quitar del carrito";
 
-    //let inBtn = "Volver";
-    //let btn = document.createElement("button");
-   //btn.classList.add("botonCerrar")
-    //btn.innerHTML += inBtn;
-    //itemInfo.appendChild(btn);
+    //let btnCartText;
+    //if (carrito.includes(item)) {
+    //    btnCartText = "Quitar del carrito"
+    //} else {
+    //    btnCartText = "Agregar al carrito"
+    //}
 
-    setButton(btnCartText, "botonModal", itemInfo, agregarCarrito, item);
-    setButton("Volver", "botonModal", itemInfo, cerrarModal, modalInfo);
+    setButton(btnCartText, "botonModal", "btnCart", itemInfo, agregarCarrito, item);
+    setButton("Volver", "botonModal", "btnVolver", itemInfo, cerrarModal, modalInfo);
+
+    //setButton(btnCartText, "botonModal", itemInfo, agregarCarrito, item);
+    //setButton("Volver", "botonModal", itemInfo, cerrarModal, modalInfo);
 
     modalInfo.style.display = "block";
     body.style.overflow = "hidden";
@@ -157,18 +158,30 @@ function agregarCarrito(item) {
     let productoEncontrado = carrito.findIndex((elemento) => {
         return elemento.nombre === item.nombre
     });
-    if (productoEncontrado === -1) {
-        carrito.push(item);
-        const carritoStr = JSON.stringify(carrito);
-        localStorage.setItem("ProductosEnCarrito", carritoStr);
-    } else {
-        carrito.splice(productoEncontrado, 1);
-        const carritoStr = JSON.stringify(carrito);
-        localStorage.setItem("ProductosEnCarrito", carritoStr);
-    }
+    productoEncontrado === -1 ? carrito.push(item) : carrito.splice(productoEncontrado, 1);
+
+    const carritoStr = JSON.stringify(carrito);
+    localStorage.setItem("ProductosEnCarrito", carritoStr);
+
     modificarContadorCarrito();
 
+    let textoBoton = document.querySelector("#btnCart");
+    let btnCartText;
+    carrito.includes(item) ? btnCartText = "Quitar del carrito" : btnCartText = "Agregar al carrito";
+    textoBoton.innerHTML = btnCartText;
 }
+    //if (productoEncontrado === -1) {
+       // carrito.push(item);
+       // const carritoStr = JSON.stringify(carrito);
+       // localStorage.setItem("ProductosEnCarrito", carritoStr);
+   // } else {
+      //  carrito.splice(productoEncontrado, 1);
+      //  const carritoStr = JSON.stringify(carrito);
+    //   localStorage.setItem("ProductosEnCarrito", carritoStr);
+    //}
+   // modificarContadorCarrito();
+
+//}
 
 function modificarContadorCarrito () {
     let carritoContainer = document.querySelector("#carrito");
@@ -181,7 +194,6 @@ function modificarContadorCarrito () {
 }
 
 function abrirCarrito() {
-    //let total = 0;
     let modalCart = document.querySelector("#modalCart")
     let modalCarrito = document.querySelector("#modalCarrito");
     modalCarrito.innerHTML = ""
@@ -218,9 +230,12 @@ function finalizarCompra(){
     modificarContadorCarrito();
     modalCarrito.innerHTML = `<h3>¡Gracias por su compra!</h3> 
     <button onClick="cerrarModal(modalCart)">Aceptar</button>`
+    const carritoStr = JSON.stringify(carrito);
+    localStorage.setItem("ProductosEnCarrito", carritoStr);
 }
 
 // Fin de funciones
 
 ingresarUsuario();
 mostrarProductos();
+modificarContadorCarrito ();
