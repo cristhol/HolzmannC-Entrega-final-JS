@@ -180,7 +180,12 @@ section h3 {
     padding-left: 15px;
 }
 
-
+section h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 10px;
+    color: #F9CE69;
+}
 
 section p {
     line-height: 1.4;
@@ -196,6 +201,7 @@ section p {
     padding: 10px;
     margin-bottom: 30px;
 }
+
 
 #todasCards {
     display: flex;
@@ -359,4 +365,15 @@ section p {
 .accionesCarrito {
     display: flex;
     justify-content: space-around;
+}
+
+.toastifyNotification {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+
+.swal2-popup {
+    font-size: 1.5rem !important;
+    font-family: 'Montserrat', Verdana, Geneva, Tahoma, sans-serif;
 }
