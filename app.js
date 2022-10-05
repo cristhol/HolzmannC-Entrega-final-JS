@@ -1,4 +1,4 @@
-//Se crea la estructura de datos con todos los productos
+//Se crea la estructura de datos con todas las peliculas
 
 class Productos {
     constructor(nombre, marca, modelo, descripcion, precio, miniatura, foto) {
@@ -28,7 +28,7 @@ localStorage.setItem("CatalogoCompleto", todosLosProductosStr);
 //Se declaran variables
 
 let usuario;
-let carrito = JSON.parse(localStorage.getItem('ProductosEnCarrito')) || [];
+let carrito = JSON.parse (localStorage.getItem('ProductosEnCarrito')) || [];
 const body = document.querySelector("body");
 const botonCarrito = document.querySelector("#botonCarrito");
 botonCarrito.addEventListener("click", () => {
@@ -36,9 +36,7 @@ botonCarrito.addEventListener("click", () => {
 })
 
 
-
 //Se declaran funciones
-
 
 function validarUsuario(user) {
     let saludo = document.querySelector("#userName");
@@ -59,14 +57,13 @@ function ingresarUsuario() {
         nombre = e.target.value;
     });
     let ingreso = document.querySelector("#ingresoUsuario");
-    ingreso.onclick = () => {
+    ingreso.addEventListener("click", () => {
         campo.value = ""
         cerrarModal(pantallaIngreso);
         nombre != undefined ? nombre : nombre = "usuario";
         validarUsuario(nombre);
-    }
+    })
 }
-
 
 function setButton(inBtn, addedClass, newId, container, action, reference) {
     let btn = document.createElement("button");
@@ -77,14 +74,13 @@ function setButton(inBtn, addedClass, newId, container, action, reference) {
     btn.addEventListener("click", () => {
         btn = "";
         action(reference);
-    })
+    }) 
 }
 
 function cerrarModal(param) {
     param.style.display = "none";
     body.style.overflow = "auto";
 }
-
 
 function mostrarProductos() {
     let catalogo = document.getElementById("todasCards");
@@ -110,6 +106,8 @@ function mostrarProductos() {
         })
     })
 }
+
+
 
 
 function mostrarInfo(array, indice) {
@@ -140,14 +138,14 @@ function mostrarInfo(array, indice) {
     </div>`
     modalInfo.appendChild(itemInfo);
 
-
-    let productoEncontradoCarrito = carrito.findIndex((elemento) => {
+        let productoEncontradoCarrito = carrito.findIndex((elemento) => {
         return elemento.nombre === item.nombre
     });
 
     let btnCartText;
     productoEncontradoCarrito === -1 ? btnCartText = "Agregar al carrito" : btnCartText = "Quitar del carrito";
 
+    
     setButton(btnCartText, "botonModal", "btnCart", itemInfo, agregarCarrito, item);
     setButton("Volver", "botonModal", "btnVolver", itemInfo, cerrarModal, modalInfo);
 
@@ -155,9 +153,7 @@ function mostrarInfo(array, indice) {
     body.style.overflow = "hidden";
 }
 
-mostrarProductos();
 
-mostrarNotificacion(textoNotificacion);
 
 
 function agregarCarrito(item) {
@@ -188,8 +184,7 @@ function agregarCarrito(item) {
 }
 
 
-
-function modificarContadorCarrito() {
+function modificarContadorCarrito () {
     let carritoContainer = document.querySelector("#carrito");
     let contadorCarrito = document.createElement("p");
     carritoContainer.innerHTML = ""
@@ -259,7 +254,7 @@ function finalizarCompra() {
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire(
-                'Compra realizada',
+                'Compra realizada con exito!',
                 'Que disfrutes de tu producto',
                 'success'
             )
