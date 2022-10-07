@@ -1,30 +1,3 @@
-//Se crea la estructura de datos con todas las peliculas
-
-class Productos {
-    constructor(nombre, marca, modelo, descripcion, precio, miniatura, foto) {
-        this.nombre = nombre;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.miniatura = miniatura;
-        this.foto = foto;
-    }
-}
-
-const todosLosProductos = [
-    new Productos("Notebook", "Hp", "14-dq2029la plata natural 14", "Intel Core i5 1135G7 8GB de RAM 256GB SSD, Intel Iris Xe Graphics G7 80EUs 1366x768px Windows 10 Home", "152.000", "miniatura-HP", "HP-foto"),
-    new Productos("Notebook", "Lenovo", "IdeaPad 15ITL6 arctic grey táctil 15.6", "Intel Core i5 1135G7 12GB de RAM 256GB SSD, Intel Iris Xe Graphics G7 80EUs 1920x1080px Windows 11 Home", "179.999", "minitura-Lenovo", "Lenovo-foto"),
-    new Productos("Notebook", "Asus", "VivoBook X512JA slate gray 15.6", "Intel Core i7 1065G7 8GB de RAM 1TB HDD 256GB SSD, Intel Iris Plus Graphics G7 1920x1080px Windows 10 Home", "199.999", "miniatura-Asus VivoBook", "Asus VivoBook-foto"),
-    new Productos("Notebook", "Dell", " Inspiron 5510 blue 15.6", "Intel Core i5 11320H 8GB de RAM 256GB SSD, Intel Iris Xe Graphics G7 96EUs 60 Hz 1920x1080px Windows 11 Home", "283.999", "miniatura-Dell", "Dell-foto"),
-];
-
-// Se guarda el array de objetos en el local storage
-
-const todosLosProductosStr = JSON.stringify(todosLosProductos);
-localStorage.setItem("CatalogoCompleto", todosLosProductosStr);
-
-
 //Se declaran variables
 
 let usuario;
@@ -82,7 +55,11 @@ function cerrarModal(param) {
     body.style.overflow = "auto";
 }
 
-function mostrarProductos() {
+
+const mostrarProductos = async() => {
+    const response = await fetch('data.json')
+    const todosLosProductos = await response.json()
+
     let catalogo = document.getElementById("todasCards");
     while (catalogo.hasChildNodes()) {
         catalogo.removeChild(catalogo.firstChild);
