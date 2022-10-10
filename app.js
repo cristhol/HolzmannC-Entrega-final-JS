@@ -160,6 +160,7 @@ function agregarCarrito(item) {
     mostrarNotificacion(textoNotificacion);
 }
 
+
 function modificarContadorCarrito () {
     let carritoContainer = document.querySelector("#carrito");
     let contadorCarrito = document.createElement("p");
