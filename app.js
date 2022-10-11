@@ -147,11 +147,12 @@ function agregarCarrito(item) {
 
     let textoBoton = document.querySelector("#btnCart");
     let btnCartText;
+    let textoNotificacion;
         if (carrito.includes(item)) {
-        btnCartText = "Agregar al carrito"
+        btnCartText =  "Quitar del carrito"
         textoNotificacion = `${item.nombre} fue agregado al carrito`;
         } else {
-        btnCartText = "Quitar del carrito"
+        btnCartText = "Agregar al carrito"
         textoNotificacion = `${item.nombre} fue quitado del carrito`;
     }
     

@@ -3,13 +3,13 @@
         "marca": "Hp",
         "modelo": "14-dq2029la plata natural 14",
         "descripcion": "Intel Core i5 1135G7 8GB de RAM 256GB SSD, Intel Iris Xe Graphics G7 80EUs 1366x768px Windows 10 Home",
-        "precio": 152.000,
+        "precio": 152.999,
         "miniatura": "miniatura-HP",
         "foto": "HP-foto"
 
     },
     {
-        "nombre": "Notebook",
+        "nombre": "Notebook Lenovo",
         "marca": "Lenovo",
         "modelo": "IdeaPad 15ITL6 arctic grey táctil 15.6",
         "descripcion": "Intel Core i5 1135G7 12GB de RAM 256GB SSD, Intel Iris Xe Graphics G7 80EUs 1920x1080px Windows 11 Home",
@@ -19,7 +19,7 @@
 
     },
     {
-        "nombre": "Notebook",
+        "nombre": "Notebook Asus",
         "marca": "Asus",
         "modelo": "VivoBook X512JA slate gray 15.6",
         "descripcion": "Intel Core i7 1065G7 8GB de RAM 1TB HDD 256GB SSD, Intel Iris Plus Graphics G7 1920x1080px Windows 10 Home",
@@ -29,13 +29,35 @@
 
     },
     {
-        "nombre": "Notebook",
+        "nombre": "Notebook Dell",
         "marca": "Dell",
         "modelo": "Inspiron 5510 blue 15.6",
         "descripcion": "Intel Core i5 11320H 8GB de RAM 256GB SSD, Intel Iris Xe Graphics G7 96EUs 60 Hz 1920x1080px Windows 11 Home",
         "precio": 283.999,
         "miniatura": "miniatura-Dell",
         "foto": "Dell-foto"
+
+    },
+
+    {
+        "nombre": "Notebook Apple",
+        "marca": "Apple",
+        "modelo": "Marcbook Air",
+        "descripcion": "Macbook Air 13 pulgadas, 2020, Chip M1, 256 GB de SSD, 8 GB de RAM - Gris espacial",
+        "precio": 299.699,
+        "miniatura": "miniatura-Apple",
+        "foto": "Apple-foto"
+
+    },
+
+    {
+        "nombre": "Notebook Bangho",
+        "marca": "Bangho",
+        "modelo": "Bangho Max L4",
+        "descripcion": "Bang Intel Celeron N4000 4GB de RAM 120GB SSD, Intel UHD Graphics 600 1366x768px Windows 10 Home",
+        "precio": 75.999,
+        "miniatura": "miniatura-Bangho",
+        "foto": "Bangho-foto"
 
     }
 
