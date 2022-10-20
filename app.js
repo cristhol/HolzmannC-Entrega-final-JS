@@ -1,4 +1,4 @@
-//Se declaran variables
+// Declaro variables
 
 let usuario;
 let carrito = JSON.parse (localStorage.getItem('ProductosEnCarrito')) || [];
@@ -9,7 +9,7 @@ botonCarrito.addEventListener("click", () => {
 })
 
 
-//Se declaran funciones
+// Declaro funciones
 
 function validarUsuario(user) {
     let saludo = document.querySelector("#userName");
@@ -244,9 +244,11 @@ function finalizarCompra() {
     })
 }
 
-
+function main () {
+    ingresarUsuario();
+    mostrarProductos();
+    modificarContadorCarrito();
+}
 // Fin de funciones
 
-ingresarUsuario();
-mostrarProductos();
-modificarContadorCarrito();
+main ();
